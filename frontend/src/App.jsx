@@ -4,8 +4,7 @@ import Sidebar from './components/Sidebar';
 import StockChart from './components/StockChart';
 import PredictionCard from './components/PredictionCard';
 import SentimentPanel from './components/SentimentPanel';
-import MetricsPanel from './components/MetricsPanel';
-import { fetchTickers, fetchPrediction, fetchHistory, fetchMetrics, fetchSentiment, fetchAllPredictions } from './api';
+import { fetchTickers, fetchPrediction, fetchHistory, fetchSentiment, fetchAllPredictions } from './api';
 
 function App() {
   const [tickers, setTickers] = useState([]);
@@ -13,7 +12,6 @@ function App() {
   const [prediction, setPrediction] = useState(null);
   const [allPredictions, setAllPredictions] = useState([]);
   const [history, setHistory] = useState(null);
-  const [metrics, setMetrics] = useState(null);
   const [sentiment, setSentiment] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -25,8 +23,7 @@ function App() {
         setTickers(data.tickers || []);
         const predData = await fetchAllPredictions();
         setAllPredictions(predData.predictions || []);
-        const metricsData = await fetchMetrics();
-        setMetrics(metricsData);
+
         if (data.tickers?.length > 0) {
           setSelectedTicker(data.tickers[0]);
         }
@@ -85,7 +82,6 @@ function App() {
       <main className="main-content">
         <div className="page-header">
           <h2>{selectedTicker} Dashboard</h2>
-          <span className="ticker-tag">Multi-Modal Prediction</span>
         </div>
 
         <div className="prediction-row">
@@ -101,16 +97,7 @@ function App() {
             direction={prediction?.direction}
             color={prediction?.direction === 'up' ? 'green' : 'red'}
           />
-          <PredictionCard
-            label="R² Score"
-            value={metrics ? metrics.r2.toFixed(2) : '—'}
-            color="purple"
-          />
-          <PredictionCard
-            label="Model MAE"
-            value={metrics ? metrics.mae.toFixed(2) : '—'}
-            color="blue"
-          />
+
         </div>
 
         <div className="grid-3">
@@ -118,7 +105,7 @@ function App() {
           <SentimentPanel sentiment={sentiment} ticker={selectedTicker} />
         </div>
 
-        <MetricsPanel metrics={metrics} />
+
       </main>
     </>
   );
