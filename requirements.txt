@@ -1,0 +1,20 @@
+# requirements.txt
+pandas
+numpy
+yfinance
+scikit-learn
+torch
+torch-geometric # For GNNs
+transformers # For FinBERT
+sentencepiece
+fredapi
+pytrends
+fastapi[all]
+uvicorn
+streamlit
+PyPortfolioOpt
+requests
+beautifulsoup4
+PyYAML
+scipy
+plotly

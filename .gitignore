@@ -1,0 +1,49 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+# Notebooks
+.ipynb_checkpoints
+# Data
+data/raw/*.csv
+data/processed/*.csv
+# Exception for sample files if needed
+!data/raw/sample_news.csv
+# Models
+models/*.pth
+models/*.json
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+# Credentials
+config/config.yaml
+.env

@@ -1,0 +1,18 @@
+api_keys:
+  alpha_vantage: "YOUR_ALPHA_VANTAGE_KEY"
+  fred: "YOUR_FRED_KEY"
+
+settings:
+  tickers: ['AAPL', 'MSFT', 'GOOG', 'AMZN', 'TSLA', 'NVDA', 'V', 'JPM']
+
+model:
+  sequence_length: 30
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.001
+  lstm_hidden: 64
+  lstm_layers: 2
+
+api:
+  host: "0.0.0.0"
+  port: 8000
